@@ -45,7 +45,7 @@ def get_points():
                 xyz.append(float(item))
             except ValueError:
                 pass
-    print(sorted(xyz))
+    return(sorted(xyz))
 
 if __name__ == '__main__':
     print('NOTE: Filenames must be in the same directory as this program')
@@ -56,4 +56,4 @@ if __name__ == '__main__':
     else:
         get_file(file_name)
         get_parametric_data(file)
-        get_points()
+        print(get_points())
