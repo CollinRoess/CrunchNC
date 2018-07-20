@@ -33,7 +33,7 @@ def get_points():
         c.append(item)
     for item in c:
         try:
-            xyz.append(int(item))
+            _=int(item)
         except ValueError:
             try:
                 xyz.append(float(item))
