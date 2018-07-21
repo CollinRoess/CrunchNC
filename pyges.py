@@ -7,9 +7,13 @@ import os
     column 73='P'
 '''
 def get_param(file_name):
-    file = open(os.path.abspath(file_name))
+    file = open(os.path.abspath(file_name), 'r')
+    lines = file.readlines()
     global x
-    x=[_[:65] for _ in file if _[72]=='S']
+    x = []
+    for i in lines:
+        if i[72]=='P':
+            x.append(i[:65])
 
 
 def get_points():
