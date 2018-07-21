@@ -3,14 +3,14 @@ I know this looks like it was written by a toddler.
 Maybe it was. Anyway pipe down. I'll fix it.
 """
 import os
-
-def get_file(file_name):
+'''getting only lines of file where parametric data is present
+    column 73='P'
+'''
+def get_param(file_name):
     file = open(os.path.abspath(file_name))
     global x
-    x=[]
-    for line in file:
-        if line[72]=='P':
-            x.append(line[:65])
+    x=[_[:65] for _ in file if _[72]=='S']
+
 
 def get_points():
     y=[]
