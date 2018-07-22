@@ -43,4 +43,5 @@ def get_points():
                 xyz.append(float(item))
             except ValueError:
                 pass
-    return(sorted(xyz))
+    points=set([round(elem,4) for elem in xyz])
+    return(sorted(points))
