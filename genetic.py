@@ -1,6 +1,8 @@
 import pyges
 import random
 
+random.seed()
+
 file=pyges.get_param(input('Enter IGES filename: '))
 raw_points=pyges.get_points()
 
@@ -11,6 +13,7 @@ max_y = float(input('Specify Stock Length (y)(mm): \n'))
 def init_genes():
     global g_codes
     global gene_pool
+    global g_codes
     g_codes=['G00','G01','G02','G03']
     genes=[]
     for el in raw_points:
@@ -24,6 +27,23 @@ def init_genes():
             genes.append(el+(counter*depth))
             counter+=1
     gene_pool=sorted(set(genes))
-    print(gene_pool)
 
+
+
+class indiv:
+    def __init__(self, length=0, codes=[]):
+        self.length=length
+        self.codes=codes
+    def get_length(self):
+        self.length=random.randint(1,100)
+
+    def build_codes(self):
+        for i in range(self.length):
+            self.codes.append([g_codes[random.randint(0,3)]])
+        return self.codes
 init_genes()
+one=indiv()
+one.get_length()
+one.build_codes()
+print(one.length)
+print(one.codes)
