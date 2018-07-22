@@ -40,10 +40,14 @@ class indiv:
     def build_codes(self):
         for i in range(self.length):
             self.codes.append([g_codes[random.randint(0,3)]])
-        return self.codes
+    def add_xy(self):
+        for el in self.codes:
+            el.append(gene_pool[random.randint(0,len(gene_pool)-1)])
+            '''fix this to add correct number of xy points'''
 init_genes()
 one=indiv()
 one.get_length()
 one.build_codes()
+one.add_xy()
 print(one.length)
 print(one.codes)
