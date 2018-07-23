@@ -42,12 +42,19 @@ class indiv:
             self.codes.append([g_codes[random.randint(0,3)]])
     def add_xy(self):
         for el in self.codes:
-            el.append(gene_pool[random.randint(0,len(gene_pool)-1)])
-            '''fix this to add correct number of xy points'''
+            for i in range(4):
+                el.append(gene_pool[random.randint(0,len(gene_pool)-1)])
+
+            '''fix this to add correct number of xy points and whatnot'''
 init_genes()
 one=indiv()
 one.get_length()
 one.build_codes()
 one.add_xy()
-print(one.length)
-print(one.codes)
+output=open('out.txt', 'w+')
+for i in one.codes:
+    for el in i:
+        output.write(str(el))
+        output.write('  ')
+    output.write('\n')
+output.close()
