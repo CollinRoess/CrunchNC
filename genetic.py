@@ -26,7 +26,10 @@ def init_genes():
         while -1*max_y <= (el+(counter*depth)) <=max_y:
             genes.append(el+(counter*depth))
             counter+=1
-    gene_pool=sorted(set(genes))
+    unrounded_gene_pool=sorted(set(genes))
+    gene_pool=[]
+    for i in unrounded_gene_pool:
+        gene_pool.append(round(i, 4))
 
 
 
@@ -42,12 +45,33 @@ class indiv:
             self.codes.append([g_codes[random.randint(0,3)]])
     def add_xy(self):
         for el in self.codes:
-            for i in range(4):
-                el.append(gene_pool[random.randint(0,len(gene_pool)-1)])
+            if el[0]=="G00" or el[0]=="G01":
+                for i in range(4):
+                    el.append(gene_pool[random.randint(0,len(gene_pool)-1)])
+            elif el[0]=="G02" or el[0]=="G03":
+                for i in range(5):
+                    el.append(gene_pool[random.randint(0,len(gene_pool)-1)])
 
-            '''fix this to add correct number of xy points and whatnot'''
+def create(output_file):
+    x=indiv()
+    x.get_length()
+    x.build_codes()
+    x.add_xy()
+    output=open(output_file, 'w+')
+    for i in x.codes:
+        for el in i:
+            output.write(str(el))
+            output.write('  ')
+        output.write('\n')
+    output.close()
+
+
 init_genes()
-one=indiv()
+for i in range(2):
+    create(str(hash(i))+'.txt')
+
+    
+'''one=indiv()
 one.get_length()
 one.build_codes()
 one.add_xy()
@@ -57,4 +81,4 @@ for i in one.codes:
         output.write(str(el))
         output.write('  ')
     output.write('\n')
-output.close()
+output.close()'''
