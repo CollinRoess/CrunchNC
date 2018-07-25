@@ -34,9 +34,9 @@ def init_genes():
 
 
 class indiv:
-    def __init__(self, length=0, codes=[]):
-        self.length=length
-        self.codes=codes
+    def __init__(self):
+        self.length=0
+        self.codes=[]
     def get_length(self):
         self.length=random.randint(1,100)
 
