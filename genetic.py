@@ -52,6 +52,7 @@ class indiv:
                 for i in range(5):
                     el.append(gene_pool[random.randint(0,len(gene_pool)-1)])
 
+'''fix this'''
 def create(output_file):
     x=indiv()
     x.get_length()
@@ -70,7 +71,7 @@ init_genes()
 for i in range(2):
     create(str(hash(i))+'.txt')
 
-    
+
 '''one=indiv()
 one.get_length()
 one.build_codes()
