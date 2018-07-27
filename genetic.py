@@ -72,6 +72,16 @@ init_genes()
 for i in range(2):
     create(str(hash(i))+'.txt')
 
+"""TODO:
+
+1) Figure out how to score this mother.
+2) Create individuals AND MAKE SURE G CODE PATHS ARE CONTINUOUS (i.e the end
+point of the first code is the start point of the next, etc.)
+
+3) Selection and Mutationself.
+4) A boatload of JS that makes everything look cool
+5) ??? AWS connection
+6) Profit
 
 '''one=indiv()
 one.get_length()
