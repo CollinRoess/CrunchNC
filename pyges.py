@@ -31,6 +31,7 @@ def get_points():
         for i in item:
             true_pointlist.append(i)
 
+
     c=[]
     xyz=[]
     for item in set(true_pointlist):
@@ -44,4 +45,11 @@ def get_points():
             except ValueError:
                 pass
     points=set([round(elem,4) for elem in xyz])
-    return(sorted(points))
+
+    print(sorted(points))
+
+
+if __name__=="__main__":
+
+    get_param(input("filename"))
+    get_points()
